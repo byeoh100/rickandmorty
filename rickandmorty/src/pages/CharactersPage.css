@@ -1,0 +1,17 @@
+.cardBox {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 18rem);
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh 2vw;
+    padding-bottom: 2vh;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1vh;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import Card from 'react-bootstrap/Card'
 
 function CharacterDetailsPage() {
     const { id } = useParams()
@@ -15,10 +16,14 @@ function CharacterDetailsPage() {
     }, [])
 
     return (
-        <div>
-            <h1>{char.name}</h1>
-            <h2>{}</h2>
-        </div>
+        <>
+            <Card style={{ width: '35rem' }}>
+                <Card.Img variant="top" src={char.image} />
+                <Card.Body>
+                    <Card.Title>{char.name}</Card.Title>
+                </Card.Body>
+            </Card>
+        </>
     )
 }
 

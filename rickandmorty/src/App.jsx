@@ -1,28 +1,19 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import { Outlet, Link } from "react-router-dom"
-import Nav from 'react-bootstrap/Nav'
+import { Outlet } from "react-router-dom"
 import './App.css'
+import NavBar from './pages/NavBar'
 
 function App() {
+    const [favorites, setFavorites] = useState([])
+
     return (
         <div>
-            <Nav className="justify-content-center">
-                <Nav.Item>
-                    <Nav.Link><Link to="/">Home</Link></Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link><Link to="/contact">Contact</Link></Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link><Link to="/about-us">About us</Link></Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link><Link to="/characters">Characters</Link></Nav.Link>
-                </Nav.Item>
-            </Nav>
-            <Outlet />
+            <NavBar />
+            <div id="main">
+                <div id="mainContainer">
+                    <Outlet context={{ favorites, setFavorites }} />
+                </div>
+            </div>
         </div>
     )
 }

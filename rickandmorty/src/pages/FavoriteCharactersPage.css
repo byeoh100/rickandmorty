@@ -1,0 +1,9 @@
+.favBox {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 36rem);
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    gap: 2vw 2vw;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+}

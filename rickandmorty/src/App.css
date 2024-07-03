@@ -1,0 +1,21 @@
+#main {
+    background-image: url('https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/04/rick-and-morty-couch-header.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mainContainer {
+    margin-top: 5vh;
+    padding-top: 2.5vh;
+    width: 80vw;
+    min-height: 100vh;
+    background-color: wheat;
+    border: 3px solid brown;
+    border-bottom: 0;
+}

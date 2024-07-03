@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import "./CharactersPage.css"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useOutletContext } from 'react-router-dom'
 import star from '../assets/star.png'
 import star_filled from '../assets/star_filled.png'
 
 function CharactersPage() {
     const [charList, setCharList] = useState([])
     const [page, setPage] = useState(1)
-    const [favorites, setFavorites] = useState([])
+    const { favorites, setFavorites } = useOutletContext()
     const navigate = useNavigate()
 
     console.log(favorites)
@@ -56,14 +56,16 @@ function CharactersPage() {
             </div>
             <div className="cardBox">
                 {charList.map((i, index) => (
-                    <Card style={{ width: '18rem' }} key={index}>
+                    <Card style={{ width: '18rem' }} key={index} className="card">
                         <Card.Img variant="top" src={i.image} onClick={() => navigate(`/character-details/${i.id}`)} style={{ cursor: "pointer" }} />
                         <Card.Body>
-                            <Card.Title>{i.name}</Card.Title>
-                            <img
-                                onClick={() => handleFavorites(i.id)}
-                                src={favorites.includes(i.id) ? star_filled : star}
-                                style={{ width: "1rem", height: "1rem", cursor: "pointer" }} />
+                            <div style={{display : "flex", justifyContent : "space-between", alignItems : "center"}}>
+                                <Card.Title>{i.name}</Card.Title>
+                                <img
+                                    onClick={() => handleFavorites(i.id)}
+                                    src={favorites.includes(i.id) ? star_filled : star}
+                                    style={{ width: "1rem", height: "1rem", cursor: "pointer"}} />
+                            </div>
                         </Card.Body>
                     </Card>
                 ))}
